@@ -16,24 +16,21 @@
 class Solution {
     public TreeNode searchBST(TreeNode root, int val) {
         Queue<TreeNode> q1 = new LinkedList<>();
-        if(root == null){
-            return null;
-        }
+        TreeNode temp = null;
         q1.add(root);
-        TreeNode temp1 = null;
         while(!q1.isEmpty()){
-            TreeNode temp = q1.remove();
-            if(temp.val==val){
-                temp1 = temp;
+            TreeNode temp1 = q1.remove();
+            if(temp1.val==val){
+                temp = temp1;
             }
-            if(temp.left !=null){
-                q1.add(temp.left);
+            if(temp1.left!=null){
+                q1.add(temp1.left);
             }
-            if(temp.right!=null){
-                q1.add(temp.right);
+            if(temp1.right!=null){
+                q1.add(temp1.right);
             }
+            
         }
-        return temp1;
-        
+        return temp;
     }
 }
